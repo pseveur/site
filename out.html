@@ -1,0 +1,477 @@
+<h1>Bienvenue  à Formation Git</h1>
+<h1>Introduction</h1>
+<p>Ce document a pour but de présenter les exercices réalisés lors de la formation Git pour développeur.</p>
+<p>Dans ce document, Git est toujours utilisé depuis Eclipse. Il ne s’agit donc pas ici d’utiliser Git en lignes de commande ou avec d’autres clients. Il est donc indispensable que l’utilisateur de ce guide connaisse Eclipse et sache un minimum développer avec cet outil.</p>
+<p>Ce document peut être utilisé lors de la formation mais également de façon individuelle par toute personne souhaitant avoir une première approche Git. Il est suffisamment illustré pour pouvoir appréhender seul les principaux concepts et surtout pratiquer.</p>
+<p>Pour la formation, se connecter sur le poste avec son propre matricule (a ou x) et non celui de la salle de formation.</p>
+<h2>1 - Exercice 1 – Configurer Git sous Eclipse</h2>
+<blockquote>
+<p>But de l’exercice : Configurer Git sous Eclipse</p>
+</blockquote>
+<ol>
+<li>Démarrer Eclipse Kepler JEE 4.3.2,</li>
+<li>Se positionner dans le workspace <code>D:\FormationGit</code> qui a déjà été créé sur les postes de formation.</li>
+</ol>
+<p>::uml:: format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+   Goofy -&gt;  MickeyMouse: calls
+   Goofy &lt;-- MickeyMouse: responds
+::end-uml::</p>
+<p><code>plantuml 
+format="png" classes="uml myDiagram" alt="My super diagram placeholder" title="My super diagram"
+ Goofy -&gt;  MickeyMouse: calls
+ Goofy &lt;-- MickeyMouse: responds</code></p>
+<p><code>cobol
+    identification division.
+    move a to b 
+    move 'ABCD' to zone.</code>
+<code>ruby
+    require 'redcarpet'
+    markdown = Redcarpet.new("Hello World!")
+    puts markdown.to_html</code> </p>
+<p>Figure 1- Choix du workspace</p>
+<p>```
+@startuml
+[<em>] --&gt; State1
+State1 --&gt; [</em>]
+State1 : this is a string
+State1 : this is another string
+State1 -&gt; State2
+State2 --&gt; [<em>]
+@enduml
+@startuml
+scale 350 width
+[</em>] --&gt; NotShooting</p>
+<p>state NotShooting {
+  [*] --&gt; Idle
+  Idle --&gt; Configuring : EvConfig
+  Configuring --&gt; Idle : EvConfig
+}</p>
+<p>state Configuring {
+  [*] --&gt; NewValueSelection
+  NewValueSelection --&gt; NewValuePreview : EvNewValue
+  NewValuePreview --&gt; NewValueSelection : EvNewValueRejected
+  NewValuePreview --&gt; NewValueSelection : EvNewValueSaved</p>
+<p>state NewValuePreview {
+     State1 -&gt; State2
+  }</p>
+<p>}
+@enduml</p>
+<p>@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10</p>
+<p>box "GitHub repo" #LightCyan
+  participant "origin/master"
+  participant "origin/develop"
+end box
+box "Dev1 repo" #White
+  participant develop
+  participant "feature/A"
+  participant "feature/B"
+end box
+activate "origin/master"
+"origin/master" -&gt; "origin/master" : initial\ncommit
+"origin/master" -&gt; "origin/develop" : branch from\norigin/master
+activate "origin/develop"
+"develop" &lt;- "origin/develop" : pull from\norigin/develop
+activate develop
+"develop" -&gt; "feature/A" : branch from develop
+activate "feature/A"
+"feature/A" -&gt; "feature/A" : commit 1
+"feature/A" -&gt; "feature/A" : commit 2
+develop &lt;- "feature/A" : merge feature/A\ninto develop
+develop -&gt; develop : merge commit
+destroy "feature/A"
+note over "feature/A": Feature branches are\ndeleted when merged 
+"origin/develop" &lt;- "develop" : push to\norigin/develop
+@enduml
+```</p>
+<h2>gitflow-hotfix.puml</h2>
+<p><code>@startuml
+participant develop
+participant master
+master -&gt; master: tag 1.2.0
+create participant "hotfix/1.2.1" as hotfix
+master -&gt; hotfix: branch from master
+activate hotfix
+hotfix -&gt; hotfix: commit
+hotfix -&gt; hotfix: commit
+note over hotfix #D3D3D3: 1.2.1-beta.1+2
+hotfix -&gt; hotfix: tag 1.2.1-beta.1
+note over hotfix #D3D3D3: 1.2.1-beta.1
+hotfix -&gt; master: merge
+destroy hotfix
+note over hotfix
+  Hotfix branches are deleted once merged
+end note
+master -&gt; master: tag 1.2.1
+@enduml</code></p>
+<h2>gitflow-support-hotfix.puml</h2>
+<p><code>@startuml
+== gitflow hotfix support ==
+participant develop
+participant master
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+note over develop, master
+  Create 2.0.0 release and complete
+end note
+master -&gt; master: tag 2.0.0
+create participant "support/1.x" as support
+master -&gt; support: branch from tag (1.3.0)
+support -&gt; support: commit
+note over support #D3D3D3: 1.3.1+1
+create participant "hotfix/1.3.1" as hotfix2
+support -&gt; hotfix2: branch from support/1.x
+activate hotfix2
+hotfix2 -&gt; hotfix2: commit
+hotfix2 -&gt; hotfix2: commit
+note over hotfix2 #D3D3D3: 1.3.1-beta.1+3
+hotfix2 -&gt; hotfix2: tag 1.3.1-beta.1
+note over hotfix2 #D3D3D3: 1.3.1-beta.1
+hotfix2 -&gt; support: merge
+destroy hotfix2
+note over hotfix2
+  Hotfix branches are deleted once merged
+end note
+note over support #D3D3D3: 1.3.1+4
+support -&gt; support: tag 1.3.1
+note over support #D3D3D3: 1.3.1
+@enduml</code></p>
+<h2>gitflow-major.puml</h2>
+<p><code>@startuml
+== gitflow major == 
+participant master
+participant develop
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+create participant "release/2.0.0" as release
+develop -&gt; release: branch from develop
+activate release
+note over release #D3D3D3: 2.0.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.4.0-unstable.2
+release -&gt; release: commit
+note over release #D3D3D3: 2.0.0-beta.1+1
+release -&gt; release: tag 2.0.0-beta.1
+note over release #D3D3D3: 2.0.0-beta.1
+release -&gt; release: commit
+note over release #D3D3D3: 2.0.0-beta.2+2
+release -&gt; master: merge
+release -&gt; develop: merge
+destroy release
+note over release
+  Release branches are deleted once merged
+end note
+note over master #D3D3D3: 2.0.0+0
+master -&gt; master: tag 2.0.0
+note over master #D3D3D3: 2.0.0
+note over develop #D3D3D3: 2.1.0-unstable.2
+@enduml</code></p>
+<h2>gitflow-minor.puml</h2>
+<p><code>@startuml
+== gitflow minor ==
+participant master
+participant develop
+master -&gt; master: tag 1.2.1
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+create participant "release/1.3.0" as release
+develop -&gt; release: branch from develop
+activate release
+note over release #D3D3D3: 1.3.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.2
+release -&gt; release: commit
+note over release #D3D3D3: 1.3.0-beta.1+1
+release -&gt; release: tag 1.3.0-beta.1
+note over release #D3D3D3: 1.3.0-beta.1
+release -&gt; release: commit
+note over release #D3D3D3: 1.3.0-beta.2+2
+release -&gt; master: merge
+release -&gt; develop: merge
+destroy release
+note over release
+  Release branches are deleted once merged
+end note
+master -&gt; master: tag 1.3.0
+note over master #D3D3D3: 1.3.0
+note over develop #D3D3D3: 1.4.0-unstable.2
+@enduml</code></p>
+<h2>gitflow-featurebranch.puml</h2>
+<p><code>@startuml
+== gitflow feature branch ==
+participant master
+participant develop
+master -&gt; master: tag 1.2.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+create participant "feature/myfeature" as feature
+develop -&gt; feature: branch from develop
+activate feature
+note over feature #D3D3D3: 1.3.0-myfeature.1+1
+feature -&gt; feature: commit
+note over feature #D3D3D3: 1.3.0-myfeature.1+2
+feature -&gt; develop: merge
+destroy feature
+note over feature
+  Feature branches should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+@enduml</code></p>
+<h2>gitflow-support-minor.puml</h2>
+<p><code>@startuml
+== gitflow support minor == 
+participant develop
+participant master
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+note over develop, master
+  Create 2.0.0 release and complete
+end note
+master -&gt; master: tag 2.0.0
+create participant "support/1.x" as support
+master -&gt; support: branch from tag (1.3.0)
+note over master, support
+  Create 1.3.1 release and complete
+end note
+support -&gt; support: tag 1.3.1
+create participant "release/1.4.0" as supportRelease
+support -&gt; supportRelease: branch from support/1.x
+activate supportRelease
+supportRelease -&gt; supportRelease: commit
+supportRelease -&gt; supportRelease: commit
+note over supportRelease #D3D3D3: 1.4.0-beta.1+2
+supportRelease -&gt; supportRelease: tag 1.4.0-beta.1
+note over supportRelease #D3D3D3: 1.4.0-beta.1
+supportRelease -&gt; support: merge
+destroy supportRelease
+note over supportRelease
+  Release branches are deleted once merged
+end note
+note over support #D3D3D3: 1.4.0+0
+support -&gt; support: tag 1.4.0
+note over support #D3D3D3: 1.4.0
+@enduml</code></p>
+<h2>gitflow-pullrequest.puml</h2>
+<p><code>@startuml
+participant master
+participant develop
+master -&gt; master: tag 1.2.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+create participant "pull/2/merge" as pr
+develop -&gt; pr: branch from develop
+activate pr
+note over pr #D3D3D3: 1.3.0-PullRequest.2+1
+pr -&gt; pr: commit
+note over pr #D3D3D3: 1.3.0-PullRequest.2+2
+pr -&gt; develop: merge
+destroy pr
+note over pr
+  Feature branches/pr's should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+@enduml</code></p>
+<h2>gitflow-overview.puml</h2>
+<p><code>@startuml
+== gitflow overwiew  ==
+participant "pull/2/merge" as feature
+participant develop
+participant "release/2.0.0" as majorRelease
+participant "release/1.3.0" as minorRelease
+participant master
+activate develop
+activate master
+master -&gt; master: commit
+master -&gt; master: tag 1.2.0
+== Feature branch ==
+note over feature, master
+  Feature branches are likely pushed to a fork,
+  then submit a PR.pull/2/merge is what your build server sees when
+  you submit a PR with #2
+end note
+hnote over develop
+  develop
+end note
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+hnote over feature
+  pull/2/merge
+end note
+develop -&gt; feature: branch from develop
+activate feature
+note over feature #D3D3D3: 1.3.0-PullRequest.2+1
+feature -&gt; feature: commit
+note over feature #D3D3D3: 1.3.0-PullRequest.2+2
+feature -&gt; develop: merge
+destroy feature
+note over feature
+  Feature branches/pr's should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+== Hotfix release ==
+note over feature, master
+  Hotfix branches are short lived branches
+  which allow you to do SemVer patch releases
+end note
+create participant "hotfix/1.2.1" as hotfix
+master -&gt; hotfix: branch from master
+activate hotfix
+hotfix -&gt; hotfix: commit
+hotfix -&gt; hotfix: commit
+note over hotfix #D3D3D3: 1.2.1-beta.1+2
+hotfix -&gt; hotfix: tag 1.2.1-beta.1
+note over hotfix #D3D3D3: 1.2.1-beta.1
+hotfix -&gt; master: merge
+destroy hotfix
+note over hotfix
+  Hotfix branches are deleted once merged
+end note
+master -&gt; master: tag 1.2.1
+== Minor Release ==
+note over feature, master
+  In GitFlow the release branch is taken from develop
+end note
+hnote over minorRelease
+  release/1.3.0
+end note
+develop -&gt; minorRelease: branch from develop
+activate minorRelease
+note over minorRelease #D3D3D3: 1.3.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.4
+minorRelease -&gt; minorRelease: commit
+note over minorRelease #D3D3D3: 1.3.0-beta.1+1
+minorRelease -&gt; minorRelease: tag 1.3.0-beta.1
+note over minorRelease #D3D3D3: 1.3.0-beta.1
+minorRelease -&gt; minorRelease: commit
+note over minorRelease #D3D3D3: 1.3.0-beta.2+2
+minorRelease -&gt; master: merge
+note over master #D3D3D3: 1.3.0+0
+master -&gt; master: tag 1.3.0
+note over master #D3D3D3: 1.3.0
+minorRelease -&gt; develop: merge
+note over minorRelease
+  Release branches are deleted once merged
+end note
+note over develop #D3D3D3: 1.4.0-unstable.2
+== Major Release ==
+hnote over majorRelease
+  release/2.0.0
+end note
+develop -&gt; majorRelease: branch from develop
+note over majorRelease #D3D3D3: 2.0.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.4.0-unstable.3
+majorRelease -&gt; majorRelease: commit
+note over majorRelease #D3D3D3: 2.0.0-beta.1+1
+majorRelease -&gt; majorRelease: tag 2.0.0-beta.1
+note over majorRelease #D3D3D3: 2.0.0-beta.1
+majorRelease -&gt; majorRelease: commit
+note over majorRelease #D3D3D3: 2.0.0-beta.2+2
+majorRelease -&gt; master: merge
+note over master #D3D3D3: 2.0.0+0
+master -&gt; master: tag 2.0.0
+note over master #D3D3D3: 2.0.0
+majorRelease -&gt; develop: merge
+note over majorRelease
+  Release branches are deleted once merged
+end note
+note over develop #D3D3D3: 2.1.0-unstable.2
+== Support Branches ==
+note over feature, hotfix
+  Support branches allow you to create stable releases of a previous major or minor release.
+  A support branch is essentially master for an old release
+end note
+create participant "support/1.3.0" as support
+master -&gt; support: branch from tag (1.3.0)
+activate support
+support -&gt; support: commit
+note over support #D3D3D3: 1.3.0+1
+create participant "hotfix/1.3.1" as hotfix2
+support -&gt; hotfix2: branch from support/1.3.0
+activate hotfix2
+hotfix2 -&gt; hotfix2: commit
+hotfix2 -&gt; hotfix2: commit
+note over hotfix2 #D3D3D3: 1.3.1-beta.1+3
+hotfix2 -&gt; hotfix2: tag 1.3.1-beta.1
+note over hotfix2 #D3D3D3: 1.3.1-beta.1
+hotfix2 -&gt; support: merge
+destroy hotfix2
+note over hotfix2
+  Hotfix branches are deleted once merged
+end note
+note over support #D3D3D3: 1.3.1+4
+support -&gt; support: tag 1.3.1
+note over support #D3D3D3: 1.3.1
+== Minor release via support ==
+note over feature, hotfix2
+  Much like hotfixing an old version you can release minor versions of old
+  releases using support branches
+end note
+create participant "release/1.4.0" as supportRelease
+support -&gt; supportRelease: branch from support/1.3.0
+activate supportRelease
+supportRelease -&gt; supportRelease: commit
+supportRelease -&gt; supportRelease: commit
+note over supportRelease #D3D3D3: 1.4.0-beta.1+2
+supportRelease -&gt; supportRelease: tag 1.4.0-beta.1
+note over supportRelease #D3D3D3: 1.4.0-beta.1
+supportRelease -&gt; support: merge
+destroy supportRelease
+note over supportRelease
+  Release branches are deleted once merged
+end note
+note over support #D3D3D3: 1.4.0+0
+support -&gt; support: tag 1.4.0
+note over support #D3D3D3: 1.4.0
+@enduml</code></p>
+<h3>1.1 Configurer https</h3>
+<p>Il convient de désactiver le paramètre de connexion sslverify.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>Team</code>  &gt; <code>Git</code> &gt; <code>Configuration</code>.</li>
+<li>Puis sous l’onglet <code>User Settings</code>, ajouter une entrée http avec sslverify affecté à false.<br />
+    Utiliser le bouton <code>Add Entry...</code> Attention le nom de la clé à fournir est <code>http.sslverify</code></li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 2- Configuration https</p>
+<h3>1.2 Configurer l’utilisateur</h3>
+<p>Il convient de renseigner le nom et l’adresse mail de l’utilisateur.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>Team</code>  &gt; <code>Git</code> &gt; <code>Configuration</code>.</li>
+<li>Puis sous l’onglet <code>User Settings</code>, ajouter une entrée user avec email affecté à votre adresse mail et avec name affecté avec votre matricule, prénom et nom.<br />
+    Utiliser le bouton <code>Add Entry...</code> Attention les noms des clés à fournir sont <code>user.email</code> et <code>user.name</code> </li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 3- Configuration Utilisateur</p>
+<p>Dans le cadre de la formation, le name sera renseigné en fonction du poste de formation :</p>
+<p>| Aligné à gauche  | Centré          | Aligné à droite |
+| :--------------- |:---------------:| -----:|
+| Aligné à gauche  |   ce texte        |  Aligné à droite |
+| Aligné à gauche  | est             |   Aligné à droite |
+| Aligné à gauche  | centré          |    Aligné à droite |</p>
+<p>| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |</p>
+<p>| Poste1 -&gt; git01 prénom nom | Poste2 -&gt; git 02 prénom nom | Poste3 -&gt; git03 prénom nom |
+| -------------------------- | --------------------------- | -------------------------- |
+| Poste4 -&gt; git04 prénom nom | Poste5 -&gt; git05 prénom nom | Poste6 -&gt; git06 prénom nom |</p>
+<p>| Poste7 -&gt; git07 prénom nom | Poste8 -&gt; git08 prénom nom | Poste9 -&gt; git09 prénom nom |</p>
+<p>| Poste10 -&gt; git10 prénom nom |</p>
+<h3>1.3 Configurer la connexion réseau</h3>
+<p>Il convient de modifier les paramètres de connectivité réseau.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>General</code>  &gt; <code>Network Connections</code>.</li>
+<li>Sélectionner comme <code>Active Provider</code> l’option <code>Native</code>.</li>
+<li>S’assurer que le « Schema » HTTPS utilise bien le proxy et que le suffixe « .socgen » ne passe pas par le proxy.</li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 4- Configuration connexion réseau</p>
