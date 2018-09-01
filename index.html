@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - Formation Git</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Formation Git</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#bienvenue-a-formation-git">Bienvenue  à Formation Git</a></li>
+    
+
+    <li class="toctree-l2"><a href="#introduction">Introduction</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#1-exercice-1-configurer-git-sous-eclipse">1 - Exercice 1 – Configurer Git sous Eclipse</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-hotfixpuml">gitflow-hotfix.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-support-hotfixpuml">gitflow-support-hotfix.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-majorpuml">gitflow-major.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-minorpuml">gitflow-minor.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-featurebranchpuml">gitflow-featurebranch.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-support-minorpuml">gitflow-support-minor.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-pullrequestpuml">gitflow-pullrequest.puml</a></li>
+        
+            <li><a class="toctree-l3" href="#gitflow-overviewpuml">gitflow-overview.puml</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Formation Git</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="bienvenue-a-formation-git">Bienvenue  à Formation Git</h1>
+<h1 id="introduction">Introduction</h1>
+<p>Ce document a pour but de présenter les exercices réalisés lors de la formation Git pour développeur.</p>
+<p>Dans ce document, Git est toujours utilisé depuis Eclipse. Il ne s’agit donc pas ici d’utiliser Git en lignes de commande ou avec d’autres clients. Il est donc indispensable que l’utilisateur de ce guide connaisse Eclipse et sache un minimum développer avec cet outil.</p>
+<p>Ce document peut être utilisé lors de la formation mais également de façon individuelle par toute personne souhaitant avoir une première approche Git. Il est suffisamment illustré pour pouvoir appréhender seul les principaux concepts et surtout pratiquer.</p>
+<p>Pour la formation, se connecter sur le poste avec son propre matricule (a ou x) et non celui de la salle de formation.</p>
+<h2 id="1-exercice-1-configurer-git-sous-eclipse">1 - Exercice 1 – Configurer Git sous Eclipse</h2>
+<blockquote>
+<p>But de l’exercice : Configurer Git sous Eclipse</p>
+</blockquote>
+<ol>
+<li>Démarrer Eclipse Kepler JEE 4.3.2,</li>
+<li>Se positionner dans le workspace <code>D:\FormationGit</code> qui a déjà été créé sur les postes de formation.</li>
+</ol>
+<pre><code class="cobol">    identification division.
+    move a to b 
+    move 'ABCD' to zone.
+</code></pre>
+
+<pre><code class="ruby">    require 'redcarpet'
+    markdown = Redcarpet.new(&quot;Hello World!&quot;)
+    puts markdown.to_html
+</code></pre>
+
+<p>Figure 1- Choix du workspace</p>
+<pre><code>@startuml
+[*] --&gt; State1
+State1 --&gt; [*]
+State1 : this is a string
+State1 : this is another string
+State1 -&gt; State2
+State2 --&gt; [*]
+@enduml
+@startuml
+scale 350 width
+[*] --&gt; NotShooting
+
+state NotShooting {
+  [*] --&gt; Idle
+  Idle --&gt; Configuring : EvConfig
+  Configuring --&gt; Idle : EvConfig
+}
+
+state Configuring {
+  [*] --&gt; NewValueSelection
+  NewValueSelection --&gt; NewValuePreview : EvNewValue
+  NewValuePreview --&gt; NewValueSelection : EvNewValueRejected
+  NewValuePreview --&gt; NewValueSelection : EvNewValueSaved
+
+  state NewValuePreview {
+     State1 -&gt; State2
+  }
+
+}
+@enduml
+
+@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+
+box &quot;GitHub repo&quot; #LightCyan
+  participant &quot;origin/master&quot;
+  participant &quot;origin/develop&quot;
+end box
+box &quot;Dev1 repo&quot; #White
+  participant develop
+  participant &quot;feature/A&quot;
+  participant &quot;feature/B&quot;
+end box
+activate &quot;origin/master&quot;
+&quot;origin/master&quot; -&gt; &quot;origin/master&quot; : initial\ncommit
+&quot;origin/master&quot; -&gt; &quot;origin/develop&quot; : branch from\norigin/master
+activate &quot;origin/develop&quot;
+&quot;develop&quot; &lt;- &quot;origin/develop&quot; : pull from\norigin/develop
+activate develop
+&quot;develop&quot; -&gt; &quot;feature/A&quot; : branch from develop
+activate &quot;feature/A&quot;
+&quot;feature/A&quot; -&gt; &quot;feature/A&quot; : commit 1
+&quot;feature/A&quot; -&gt; &quot;feature/A&quot; : commit 2
+develop &lt;- &quot;feature/A&quot; : merge feature/A\ninto develop
+develop -&gt; develop : merge commit
+destroy &quot;feature/A&quot;
+note over &quot;feature/A&quot;: Feature branches are\ndeleted when merged 
+&quot;origin/develop&quot; &lt;- &quot;develop&quot; : push to\norigin/develop
+@enduml
+</code></pre>
+
+<h2 id="gitflow-hotfixpuml">gitflow-hotfix.puml</h2>
+<pre><code>@startuml
+participant develop
+participant master
+master -&gt; master: tag 1.2.0
+create participant &quot;hotfix/1.2.1&quot; as hotfix
+master -&gt; hotfix: branch from master
+activate hotfix
+hotfix -&gt; hotfix: commit
+hotfix -&gt; hotfix: commit
+note over hotfix #D3D3D3: 1.2.1-beta.1+2
+hotfix -&gt; hotfix: tag 1.2.1-beta.1
+note over hotfix #D3D3D3: 1.2.1-beta.1
+hotfix -&gt; master: merge
+destroy hotfix
+note over hotfix
+  Hotfix branches are deleted once merged
+end note
+master -&gt; master: tag 1.2.1
+@enduml
+</code></pre>
+
+<h2 id="gitflow-support-hotfixpuml">gitflow-support-hotfix.puml</h2>
+<pre><code>@startuml
+== gitflow hotfix support ==
+participant develop
+participant master
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+note over develop, master
+  Create 2.0.0 release and complete
+end note
+master -&gt; master: tag 2.0.0
+create participant &quot;support/1.x&quot; as support
+master -&gt; support: branch from tag (1.3.0)
+support -&gt; support: commit
+note over support #D3D3D3: 1.3.1+1
+create participant &quot;hotfix/1.3.1&quot; as hotfix2
+support -&gt; hotfix2: branch from support/1.x
+activate hotfix2
+hotfix2 -&gt; hotfix2: commit
+hotfix2 -&gt; hotfix2: commit
+note over hotfix2 #D3D3D3: 1.3.1-beta.1+3
+hotfix2 -&gt; hotfix2: tag 1.3.1-beta.1
+note over hotfix2 #D3D3D3: 1.3.1-beta.1
+hotfix2 -&gt; support: merge
+destroy hotfix2
+note over hotfix2
+  Hotfix branches are deleted once merged
+end note
+note over support #D3D3D3: 1.3.1+4
+support -&gt; support: tag 1.3.1
+note over support #D3D3D3: 1.3.1
+@enduml
+</code></pre>
+
+<h2 id="gitflow-majorpuml">gitflow-major.puml</h2>
+<pre><code>@startuml
+== gitflow major == 
+participant master
+participant develop
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+create participant &quot;release/2.0.0&quot; as release
+develop -&gt; release: branch from develop
+activate release
+note over release #D3D3D3: 2.0.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.4.0-unstable.2
+release -&gt; release: commit
+note over release #D3D3D3: 2.0.0-beta.1+1
+release -&gt; release: tag 2.0.0-beta.1
+note over release #D3D3D3: 2.0.0-beta.1
+release -&gt; release: commit
+note over release #D3D3D3: 2.0.0-beta.2+2
+release -&gt; master: merge
+release -&gt; develop: merge
+destroy release
+note over release
+  Release branches are deleted once merged
+end note
+note over master #D3D3D3: 2.0.0+0
+master -&gt; master: tag 2.0.0
+note over master #D3D3D3: 2.0.0
+note over develop #D3D3D3: 2.1.0-unstable.2
+@enduml
+</code></pre>
+
+<h2 id="gitflow-minorpuml">gitflow-minor.puml</h2>
+<pre><code>@startuml
+== gitflow minor ==
+participant master
+participant develop
+master -&gt; master: tag 1.2.1
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+create participant &quot;release/1.3.0&quot; as release
+develop -&gt; release: branch from develop
+activate release
+note over release #D3D3D3: 1.3.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.2
+release -&gt; release: commit
+note over release #D3D3D3: 1.3.0-beta.1+1
+release -&gt; release: tag 1.3.0-beta.1
+note over release #D3D3D3: 1.3.0-beta.1
+release -&gt; release: commit
+note over release #D3D3D3: 1.3.0-beta.2+2
+release -&gt; master: merge
+release -&gt; develop: merge
+destroy release
+note over release
+  Release branches are deleted once merged
+end note
+master -&gt; master: tag 1.3.0
+note over master #D3D3D3: 1.3.0
+note over develop #D3D3D3: 1.4.0-unstable.2
+@enduml
+</code></pre>
+
+<h2 id="gitflow-featurebranchpuml">gitflow-featurebranch.puml</h2>
+<pre><code>@startuml
+== gitflow feature branch ==
+participant master
+participant develop
+master -&gt; master: tag 1.2.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+create participant &quot;feature/myfeature&quot; as feature
+develop -&gt; feature: branch from develop
+activate feature
+note over feature #D3D3D3: 1.3.0-myfeature.1+1
+feature -&gt; feature: commit
+note over feature #D3D3D3: 1.3.0-myfeature.1+2
+feature -&gt; develop: merge
+destroy feature
+note over feature
+  Feature branches should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+@enduml
+</code></pre>
+
+<h2 id="gitflow-support-minorpuml">gitflow-support-minor.puml</h2>
+<pre><code>@startuml
+== gitflow support minor == 
+participant develop
+participant master
+master -&gt; master: tag 1.3.0
+master -&gt; develop: branch from master
+note over develop, master
+  Create 2.0.0 release and complete
+end note
+master -&gt; master: tag 2.0.0
+create participant &quot;support/1.x&quot; as support
+master -&gt; support: branch from tag (1.3.0)
+note over master, support
+  Create 1.3.1 release and complete
+end note
+support -&gt; support: tag 1.3.1
+create participant &quot;release/1.4.0&quot; as supportRelease
+support -&gt; supportRelease: branch from support/1.x
+activate supportRelease
+supportRelease -&gt; supportRelease: commit
+supportRelease -&gt; supportRelease: commit
+note over supportRelease #D3D3D3: 1.4.0-beta.1+2
+supportRelease -&gt; supportRelease: tag 1.4.0-beta.1
+note over supportRelease #D3D3D3: 1.4.0-beta.1
+supportRelease -&gt; support: merge
+destroy supportRelease
+note over supportRelease
+  Release branches are deleted once merged
+end note
+note over support #D3D3D3: 1.4.0+0
+support -&gt; support: tag 1.4.0
+note over support #D3D3D3: 1.4.0
+@enduml
+</code></pre>
+
+<h2 id="gitflow-pullrequestpuml">gitflow-pullrequest.puml</h2>
+<pre><code>@startuml
+participant master
+participant develop
+master -&gt; master: tag 1.2.0
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+create participant &quot;pull/2/merge&quot; as pr
+develop -&gt; pr: branch from develop
+activate pr
+note over pr #D3D3D3: 1.3.0-PullRequest.2+1
+pr -&gt; pr: commit
+note over pr #D3D3D3: 1.3.0-PullRequest.2+2
+pr -&gt; develop: merge
+destroy pr
+note over pr
+  Feature branches/pr's should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+@enduml
+</code></pre>
+
+<h2 id="gitflow-overviewpuml">gitflow-overview.puml</h2>
+<pre><code>@startuml
+== gitflow overwiew  ==
+participant &quot;pull/2/merge&quot; as feature
+participant develop
+participant &quot;release/2.0.0&quot; as majorRelease
+participant &quot;release/1.3.0&quot; as minorRelease
+participant master
+activate develop
+activate master
+master -&gt; master: commit
+master -&gt; master: tag 1.2.0
+== Feature branch ==
+note over feature, master
+  Feature branches are likely pushed to a fork,
+  then submit a PR.pull/2/merge is what your build server sees when
+  you submit a PR with #2
+end note
+hnote over develop
+  develop
+end note
+master -&gt; develop: branch from master
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.1
+hnote over feature
+  pull/2/merge
+end note
+develop -&gt; feature: branch from develop
+activate feature
+note over feature #D3D3D3: 1.3.0-PullRequest.2+1
+feature -&gt; feature: commit
+note over feature #D3D3D3: 1.3.0-PullRequest.2+2
+feature -&gt; develop: merge
+destroy feature
+note over feature
+  Feature branches/pr's should
+  be deleted once merged
+end note
+note over develop #D3D3D3: 1.3.0-unstable.3
+== Hotfix release ==
+note over feature, master
+  Hotfix branches are short lived branches
+  which allow you to do SemVer patch releases
+end note
+create participant &quot;hotfix/1.2.1&quot; as hotfix
+master -&gt; hotfix: branch from master
+activate hotfix
+hotfix -&gt; hotfix: commit
+hotfix -&gt; hotfix: commit
+note over hotfix #D3D3D3: 1.2.1-beta.1+2
+hotfix -&gt; hotfix: tag 1.2.1-beta.1
+note over hotfix #D3D3D3: 1.2.1-beta.1
+hotfix -&gt; master: merge
+destroy hotfix
+note over hotfix
+  Hotfix branches are deleted once merged
+end note
+master -&gt; master: tag 1.2.1
+== Minor Release ==
+note over feature, master
+  In GitFlow the release branch is taken from develop
+end note
+hnote over minorRelease
+  release/1.3.0
+end note
+develop -&gt; minorRelease: branch from develop
+activate minorRelease
+note over minorRelease #D3D3D3: 1.3.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.3.0-unstable.4
+minorRelease -&gt; minorRelease: commit
+note over minorRelease #D3D3D3: 1.3.0-beta.1+1
+minorRelease -&gt; minorRelease: tag 1.3.0-beta.1
+note over minorRelease #D3D3D3: 1.3.0-beta.1
+minorRelease -&gt; minorRelease: commit
+note over minorRelease #D3D3D3: 1.3.0-beta.2+2
+minorRelease -&gt; master: merge
+note over master #D3D3D3: 1.3.0+0
+master -&gt; master: tag 1.3.0
+note over master #D3D3D3: 1.3.0
+minorRelease -&gt; develop: merge
+note over minorRelease
+  Release branches are deleted once merged
+end note
+note over develop #D3D3D3: 1.4.0-unstable.2
+== Major Release ==
+hnote over majorRelease
+  release/2.0.0
+end note
+develop -&gt; majorRelease: branch from develop
+note over majorRelease #D3D3D3: 2.0.0-beta.1+0
+develop -&gt; develop: commit
+note over develop #D3D3D3: 1.4.0-unstable.3
+majorRelease -&gt; majorRelease: commit
+note over majorRelease #D3D3D3: 2.0.0-beta.1+1
+majorRelease -&gt; majorRelease: tag 2.0.0-beta.1
+note over majorRelease #D3D3D3: 2.0.0-beta.1
+majorRelease -&gt; majorRelease: commit
+note over majorRelease #D3D3D3: 2.0.0-beta.2+2
+majorRelease -&gt; master: merge
+note over master #D3D3D3: 2.0.0+0
+master -&gt; master: tag 2.0.0
+note over master #D3D3D3: 2.0.0
+majorRelease -&gt; develop: merge
+note over majorRelease
+  Release branches are deleted once merged
+end note
+note over develop #D3D3D3: 2.1.0-unstable.2
+== Support Branches ==
+note over feature, hotfix
+  Support branches allow you to create stable releases of a previous major or minor release.
+  A support branch is essentially master for an old release
+end note
+create participant &quot;support/1.3.0&quot; as support
+master -&gt; support: branch from tag (1.3.0)
+activate support
+support -&gt; support: commit
+note over support #D3D3D3: 1.3.0+1
+create participant &quot;hotfix/1.3.1&quot; as hotfix2
+support -&gt; hotfix2: branch from support/1.3.0
+activate hotfix2
+hotfix2 -&gt; hotfix2: commit
+hotfix2 -&gt; hotfix2: commit
+note over hotfix2 #D3D3D3: 1.3.1-beta.1+3
+hotfix2 -&gt; hotfix2: tag 1.3.1-beta.1
+note over hotfix2 #D3D3D3: 1.3.1-beta.1
+hotfix2 -&gt; support: merge
+destroy hotfix2
+note over hotfix2
+  Hotfix branches are deleted once merged
+end note
+note over support #D3D3D3: 1.3.1+4
+support -&gt; support: tag 1.3.1
+note over support #D3D3D3: 1.3.1
+== Minor release via support ==
+note over feature, hotfix2
+  Much like hotfixing an old version you can release minor versions of old
+  releases using support branches
+end note
+create participant &quot;release/1.4.0&quot; as supportRelease
+support -&gt; supportRelease: branch from support/1.3.0
+activate supportRelease
+supportRelease -&gt; supportRelease: commit
+supportRelease -&gt; supportRelease: commit
+note over supportRelease #D3D3D3: 1.4.0-beta.1+2
+supportRelease -&gt; supportRelease: tag 1.4.0-beta.1
+note over supportRelease #D3D3D3: 1.4.0-beta.1
+supportRelease -&gt; support: merge
+destroy supportRelease
+note over supportRelease
+  Release branches are deleted once merged
+end note
+note over support #D3D3D3: 1.4.0+0
+support -&gt; support: tag 1.4.0
+note over support #D3D3D3: 1.4.0
+@enduml
+</code></pre>
+
+<h3 id="11-configurer-https">1.1 Configurer https</h3>
+<p>Il convient de désactiver le paramètre de connexion sslverify.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>Team</code>  &gt; <code>Git</code> &gt; <code>Configuration</code>.</li>
+<li>Puis sous l’onglet <code>User Settings</code>, ajouter une entrée http avec sslverify affecté à false.<br />
+    Utiliser le bouton <code>Add Entry...</code> Attention le nom de la clé à fournir est <code>http.sslverify</code></li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 2- Configuration https</p>
+<h3 id="12-configurer-lutilisateur">1.2 Configurer l’utilisateur</h3>
+<p>Il convient de renseigner le nom et l’adresse mail de l’utilisateur.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>Team</code>  &gt; <code>Git</code> &gt; <code>Configuration</code>.</li>
+<li>Puis sous l’onglet <code>User Settings</code>, ajouter une entrée user avec email affecté à votre adresse mail et avec name affecté avec votre matricule, prénom et nom.<br />
+    Utiliser le bouton <code>Add Entry...</code> Attention les noms des clés à fournir sont <code>user.email</code> et <code>user.name</code> </li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 3- Configuration Utilisateur</p>
+<p>Dans le cadre de la formation, le name sera renseigné en fonction du poste de formation :</p>
+<table>
+<thead>
+<tr>
+<th align="left">Aligné à gauche</th>
+<th align="center">Centré</th>
+<th align="right">Aligné à droite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Aligné à gauche</td>
+<td align="center">ce texte</td>
+<td align="right">Aligné à droite</td>
+</tr>
+<tr>
+<td align="left">Aligné à gauche</td>
+<td align="center">est</td>
+<td align="right">Aligné à droite</td>
+</tr>
+<tr>
+<td align="left">Aligné à gauche</td>
+<td align="center">centré</td>
+<td align="right">Aligné à droite</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td>Text</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Poste1 -&gt; git01 prénom nom</th>
+<th>Poste2 -&gt; git 02 prénom nom</th>
+<th>Poste3 -&gt; git03 prénom nom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Poste4 -&gt; git04 prénom nom</td>
+<td>Poste5 -&gt; git05 prénom nom</td>
+<td>Poste6 -&gt; git06 prénom nom</td>
+</tr>
+</tbody>
+</table>
+<p>| Poste7 -&gt; git07 prénom nom | Poste8 -&gt; git08 prénom nom | Poste9 -&gt; git09 prénom nom |</p>
+<p>| Poste10 -&gt; git10 prénom nom |</p>
+<h3 id="13-configurer-la-connexion-reseau">1.3 Configurer la connexion réseau</h3>
+<p>Il convient de modifier les paramètres de connectivité réseau.</p>
+<ol>
+<li>Ouvrir les préférences <code>Window</code> &gt; <code>Preferences</code>  &gt; <code>General</code>  &gt; <code>Network Connections</code>.</li>
+<li>Sélectionner comme <code>Active Provider</code> l’option <code>Native</code>.</li>
+<li>S’assurer que le « Schema » HTTPS utilise bien le proxy et que le suffixe « .socgen » ne passe pas par le proxy.</li>
+</ol>
+<p>Le résultat obtenu est le suivant :</p>
+<p>Figure 4- Configuration connexion réseau</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.2
+Build Date UTC : 2018-08-26 06:19:32
+-->
